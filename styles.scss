@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Racing+Sans+One);
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
 
 $blue: #0074D9;
 $darkblue: #001F3F;
@@ -7,6 +8,7 @@ $white: #fff;
 $offwhite: #ddd;
 
 $h1-font: bold 50px 'Racing Sans One', cursive,;
+$h2-font: 15px 'Press Start 2P', cursive;
 
 body {
   background-color: $blue;
@@ -20,6 +22,19 @@ h1 {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+}
+
+h2 {
+  font: $h2-font;
+  color: $darkblue;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+h3 {
+  font: $h2-font;
+  color: $yellow;
 }
 
 #toggle {
