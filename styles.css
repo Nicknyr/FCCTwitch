@@ -25,15 +25,6 @@ h2 {
   padding-bottom: 10px;
   padding-top: 10px; }
 
-h3 {
-  color: #001F3F;
-  margin-left: 50px;
-  font: 15px "Press Start 2P", cursive;
-  font-size: 12px;
-  padding-bottom: 5px; }
-  h3 a {
-    text-decoration: none; }
-
 h4 {
   margin-left: 70px; }
 
@@ -97,11 +88,28 @@ input {
   border-top: 1px solid #0074D9; }
   #results li {
     list-style: none;
-    padding-bottom: 8px; }
+    padding-bottom: 8px;
+    color: #001F3F;
+    margin-left: 50px;
+    font: 15px "Press Start 2P", cursive;
+    font-size: 12px; }
+  #results a {
+    text-decoration: underline; }
+    #results a:visited {
+      color: blue; }
 
 #channelsOnline {
   margin-top: 30px; }
   #channelsOnline img {
     margin-left: 20px; }
+
+#channelsOffline {
+  margin-top: 30px; }
+  #channelsOffline img {
+    margin-left: 20px; }
+  #channelsOffline a {
+    color: red; }
+    #channelsOffline a:visited {
+      color: red; }
 
 /*# sourceMappingURL=styles.css.map */

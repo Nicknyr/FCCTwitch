@@ -39,19 +39,7 @@ h2 {
   padding-top: 10px;
 }
 
-h3 {
 
-  color: $darkblue;
-  margin-left: 50px;
-  font: $h2-font;
-  font-size: 12px;
-  padding-bottom: 5px;
-
-
-  a {
-    text-decoration: none;
-  }
-}
 
 h4 {
   margin-left: 70px;
@@ -142,6 +130,19 @@ input {
   li {
     list-style: none;
     padding-bottom: 8px;
+    color: $darkblue;
+    margin-left: 50px;
+    font: $h2-font;
+    font-size: 12px;
+
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:visited {
+      color: blue;
+    }
   }
 
 }
@@ -151,5 +152,21 @@ input {
 
   img {
     margin-left: 20px;
+  }
+}
+
+#channelsOffline {
+  margin-top: 30px;
+
+  img {
+    margin-left: 20px;
+  }
+
+  a {
+    color: red;
+
+    &:visited {
+      color: red;
+    }
   }
 }
