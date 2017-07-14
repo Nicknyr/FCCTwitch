@@ -14,6 +14,13 @@ body {
   background-color: $blue;
 }
 
+img {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  float: left;
+}
+
 h1 {
   font: $h1-font;
   color: $white;
@@ -33,9 +40,23 @@ h2 {
 }
 
 h3 {
-  
+
   color: $darkblue;
+  margin-left: 50px;
+  font: $h2-font;
+  font-size: 12px;
+  padding-bottom: 5px;
+
+
+  a {
+    text-decoration: none;
+  }
 }
+
+h4 {
+  margin-left: 70px;
+}
+
 
 #toggle {
   width: 30%;
@@ -65,7 +86,7 @@ h3 {
 }
 
 #searchBar {
-  width: 30%;
+  width: 35%;
   height: 3.5em;
   margin-left: auto;
   margin-right: auto;
@@ -111,10 +132,24 @@ input {
 }
 
 #results {
-  width: 30%;
-  height: 40em;
+  width: 35%;
+  height: 100%;
   background-color: $white;
   margin-left: auto;
   margin-right: auto;
   border-top: 1px solid $blue;
+
+  li {
+    list-style: none;
+    padding-bottom: 8px;
+  }
+
+}
+
+#channelsOnline  {
+  margin-top: 30px;
+
+  img {
+    margin-left: 20px;
+  }
 }
