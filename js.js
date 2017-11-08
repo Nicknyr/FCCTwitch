@@ -1,45 +1,34 @@
 $(document).ready(function(){
 
- var streamers = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404", "food", "monstercat", "saltybet"];
+ var streamers = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas", "food", "monstercat", "saltybet", "blahblahblah"];
 
-$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/freecodecamp?callback=?', function(data){
-    //console.log(data);
-    if(data.stream === null){
-      $('#FCCStatus').html('Free Code Camp is currently offline');
-    }
-    else {
-      $('#FCCStatus').html('Free Code Camp is currently streaming');
-    }
-});
+ var online = [];
 
-
-for(var i = 0; i < streamers.length; i++){
+for(let i = 0; i < streamers.length; i++){
     $.getJSON('https://wind-bow.glitch.me/twitch-api/streams/' + streamers[i]).done(function(data2) {
         //console.log(data2);
 
         if(data2.stream != null){
-          $('#channelsOnline').prepend("<img src=" + data2.stream.channel.logo + ">" + "<h3><a href=" + data2.stream.channel.url + "></h3><ul><li>" + data2.stream.channel.display_name + " is online now <a/></li><li>followers: " + data2.stream.channel.followers + "</li><li> viewers: " + data2.stream.viewers + "</li><li> game: " + data2.stream.channel.game + "</li>")
+          $('#channelsOnline').prepend("<img src=" + data2.stream.channel.logo + ">" + "<h3><a href=" + data2.stream.channel.url + "></h3><ul><li>" + data2.stream.channel.display_name + " is online now <a/></li><li>followers: " + data2.stream.channel.followers + "</li><li> viewers: " + data2.stream.viewers + "</li><li> broadcasting: " + data2.stream.channel.game + "</li>")
+
           }
-          /* Separates name of channel from the rest of the URL
-          var channelUrl = data2._links.channel;
-          var channelName = channelUrl.match(/([^\/]*)\/*$/)[1];
-          */
+          else if(data2.stream === null){
+            $.getJSON('https://wind-bow.glitch.me/twitch-api/channels/'+streamers[i]).done(function(data3){
+              console.log(data3);
+
+              if(data3.logo === null && data3.status === null){
+                $('#channelsOffline').prepend("<img src=" + "http://i66.tinypic.com/2zjgoyc.jpg width=300 height=300" + "><h3><a href=" + data3.url + "></h3><ul><li>" + data3.name + " does not exist </a></li><br />")
+                data3.name = false;
+              }
+                if(data3.name !== false){
+                $('#channelsOffline').prepend("<img src=" + data3.logo + ">" + "<h3><a href=" + data3.url + "></h3><ul><li>" + data3.name + " is offline </a></li><li>followers: " + data3.followers + "</li><li> views: " + data3.views + "</li>")
+              }
+            });
+
+        }
   });
 };
 
-for(var j = 0; j < streamers.length; j++) {
-  $.getJSON('https://wind-bow.glitch.me/twitch-api/channels/'+streamers[j]).done(function(data3){
-    console.log(data3);
-
-    if(data3.error !== true){
-    $('#channelsOffline').prepend("<img src=" + data3.logo + ">" + "<h3><a href=" + data3.url + "></h3><ul><li>" + data3.name + " is offline </a></li><li>follower: " + data3.followers + "</li><li> views: " + data3.views + "</li>")
-    }
-
-    else {
-      $('#channelsOffline').prepend("<h3>Channel does not exist</h3>")
-    }
-  });
-};
 
   $('#Online').click(function(){
     $('#channelsOffline').hide();
